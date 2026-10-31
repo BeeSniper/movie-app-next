@@ -123,3 +123,76 @@ Stop after Foundations Step 2.
 *Note: the original prompt could not be recovered. The last three lines of the Rules section are reconstructed from Prompt 17's wording and agy's scroll-back, so treat them as likely, not verified.*
 **What AI produced:** Colour tokens, a card radius token and the Geist body font in globals.css (light values on :root, a prefers-color-scheme dark override, an @theme inline block mapping them to utilities); Header.tsx with token classes, accent hover and a visible accent focus-visible outline on every link; and token classes in the four page files. layout.tsx was in scope but needed no change, so it was not edited. 6 files; per git diff --numstat, 32 insertions and 16 deletions. Commit 2180ffd.
 **What I checked/changed:** No Sources list appeared and agy read no file I had not named (all 8 reads were in my re-read list). agy proposed all files in one batch instead of one at a time; I read the proposals before approving. Its first globals.css used font-family: var(--font-sans), sans-serif, so I sent a revision to use var(--font-geist-sans), sans-serif and approved only after seeing the revised file. I approved with the full wording (exactly as shown, no other changes, no commands). agy's closing summary said "Edited 6 files" but listed seven names, including layout.tsx as "unchanged"; git status showed layout.tsx was never modified, only the six expected files. Read back from disk: globals.css line 41 has the Geist font and no Arial. A scan for zinc-, bg-black, bg-white, dark:, Arial, use client, console. and NEXT_PUBLIC found nothing. lg:px-8 and focus-visible:outline-accent match in Header.tsx. Build passed on Next.js 16.4.1 with Turbopack; all four routes are static. In Edge, the computed body font is Geist, and dark mode emulation, 375px, 1280px and Tab focus rings all passed on the four routes. Nothing edited after approval. This resolves the bg-black versus #0a0a0a mismatch noted after Step 1. Candidate improvements: no active-link style (needs a Client Component) and no aria-label on the nav. Hosting is still not set up: the Vercel and Netlify appeals are pending.
+
+## Prompt 19: Foundations Step 3 (active nav link and nav label)
+
+```
+Do not search the web or cite any sources.
+
+Do Foundations Step 3 only: mark the current page in the header
+navigation and give the nav an accessible label. Next.js App Router,
+Tailwind v4 token classes, no new dependencies, no tailwind config
+file.
+
+Context update: Foundations Step 2 is verified, tested and committed
+(2180ffd, log c86f0b4) on the branch foundations. Header.tsx is a
+Server Component that uses the token classes from globals.css
+(background, foreground, surface, border, muted, accent,
+accent-foreground). Do not install anything and do not read or print
+any .env file.
+
+Files you may read (nothing else): AGENTS.md,
+src/components/Header.tsx and src/app/globals.css. You may also read
+the guides under node_modules/next/dist/docs/.
+
+Files you may change or create (nothing else):
+- src/components/NavLink.tsx: CREATE
+- src/components/Header.tsx: EDIT
+
+Do not modify any other file, including src/app/layout.tsx, the four
+page files, globals.css, next.config.ts, package.json,
+package-lock.json, tsconfig.json, eslint.config.mjs, AGENTS.md,
+.gitignore, PROMPTS.md, README.md or anything in public/. If another
+file needs a change, tell me and wait.
+
+Task details:
+- src/components/NavLink.tsx is the only Client Component in the
+  project. Put "use client" at the top. Use usePathname from
+  next/navigation and Link from next/link. Props: href (string) and
+  children (React.ReactNode). The link is active when pathname equals
+  href exactly.
+- Always apply these classes: transition-colors hover:text-accent
+  focus-visible:outline-2 focus-visible:outline-offset-2
+  focus-visible:outline-accent
+- When active, also set aria-current="page" and add the classes
+  text-foreground underline underline-offset-4. When not active, set no
+  aria-current and add no extra classes, so the link keeps the muted
+  colour it inherits from the nav.
+- src/components/Header.tsx stays a Server Component with no "use
+  client". Add aria-label="Main" to the nav element. Replace the four
+  nav links (Home "/", Favorites "/favorites", Log in "/login", Health
+  "/health") with NavLink, keeping the same hrefs and text. The logo
+  link stays a plain Link with its existing classes. Import NavLink
+  with the relative path ./NavLink. Keep every layout class and all
+  other text exactly as they are.
+- No new colour tokens and no inline styles.
+- If you are unsure about any syntax, follow what the files already do
+  and tell me what you assumed. Do not guess silently.
+
+Rules for this session:
+- Do not ask for approval until you have finished reading. Your first
+  message must be a plan only: the list of files you will change, in
+  order, with no code. Wait for me to reply "go".
+- After "go", propose exactly ONE file per message: the full proposed
+  content. Then stop and wait. Do not show, draft or mention the next
+  file until I approve this one. Propose NavLink.tsx first, then
+  Header.tsx.
+- Do not edit any file after I approve it. If a change is needed,
+  propose it again.
+- If a file needs no change, say so in its own message and wait.
+- Do not run any command I did not ask for.
+- Your final summary must list only files you actually wrote, with no
+  "unchanged" entries.
+- Do not search the web or cite any sources.
+Stop after Foundations Step 3.
+```
