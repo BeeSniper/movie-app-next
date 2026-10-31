@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NavLink from "./NavLink";
 
 export default function Header() {
   return (
@@ -10,31 +11,14 @@ export default function Header() {
         >
           Movie App
         </Link>
-        <nav className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-muted">
-          <Link
-            href="/"
-            className="transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            Home
-          </Link>
-          <Link
-            href="/favorites"
-            className="transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            Favorites
-          </Link>
-          <Link
-            href="/login"
-            className="transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            Log in
-          </Link>
-          <Link
-            href="/health"
-            className="transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            Health
-          </Link>
+        <nav
+          aria-label="Main"
+          className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-muted"
+        >
+          <NavLink href="/">Home</NavLink>
+          <NavLink href="/favorites">Favorites</NavLink>
+          <NavLink href="/login">Log in</NavLink>
+          <NavLink href="/health">Health</NavLink>
         </nav>
       </div>
     </header>
