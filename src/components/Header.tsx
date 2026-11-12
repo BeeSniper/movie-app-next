@@ -16,6 +16,7 @@ export default function Header() {
           className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-muted"
         >
           <NavLink href="/">Home</NavLink>
+          <NavLink href="/search">Search</NavLink>
           <NavLink href="/favorites">Favorites</NavLink>
           <NavLink href="/login">Log in</NavLink>
           <NavLink href="/health">Health</NavLink>
