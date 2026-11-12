@@ -20,4 +20,4 @@ Last updated: 11 November 2026
 
 - Every screen above exists as a routed placeholder. Pages are Server Components by default; Client Components are used only where interactivity is needed.
 - `/movies/[id]` is a dynamic route. The home page links to it with a sample ID so it is reachable from the UI.
-- No secrets are stored in the repo. Environment variable names only are listed in `.env.example`.
+- No secrets are stored in the repo. Environment variable names only will be listed in `.env.example` (planned for Step 5).
