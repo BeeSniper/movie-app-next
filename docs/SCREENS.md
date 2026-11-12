@@ -3,7 +3,7 @@
 > **Skeleton spec, to be refined for the final capstone.**
 > The original spec was not available during the skeleton deployment, so this screen list was defined by the author. Screens may be added, renamed or removed in the final capstone.
 
-Last updated: 11 November 2026
+Last updated: 12 November 2026
 
 ## Screen list
 
