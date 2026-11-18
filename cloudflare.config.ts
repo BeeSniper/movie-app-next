@@ -13,6 +13,7 @@ export default defineConfig({
     },
     env: {
       ASSETS: bindings.assets(),
+      HEALTH_API_URL: bindings.text("https://jsonplaceholder.typicode.com/todos/1"),
     },
   }),
 });
