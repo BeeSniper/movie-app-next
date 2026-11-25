@@ -3,7 +3,7 @@
 > **Skeleton spec, to be refined for the final capstone.**
 > The original spec was not available during the skeleton deployment, so this screen list was defined by the author. Screens may be added, renamed or removed in the final capstone.
 
-Last updated: 12 November 2026
+Last updated: 19 November 2026
 
 ## Screen list
 
@@ -20,4 +20,4 @@ Last updated: 12 November 2026
 
 - Every screen above exists as a routed placeholder. Pages are Server Components by default; Client Components are used only where interactivity is needed.
 - `/movies/[id]` is a dynamic route. The home page links to it with a sample ID so it is reachable from the UI.
-- No secrets are stored in the repo. Environment variable names only will be listed in `.env.example` (planned for Step 5).
+- No secrets are stored in the repo. Environment variable names only are listed in `.env.example` (HEALTH_API_URL).
